@@ -47,7 +47,7 @@ public class Presenter {
             @Override
             public void onResponse(Call<GetAdd> call, Response<GetAdd> response) {
                 if (response.body()!=null&&!response.body().getAnswer().equals("Ошибка"))
-                    viewMain.saySuccess();
+                    viewMain.saySuccess(response.body().getAnswer());
                 else if(response.body()==null) viewMain.sayAboutError("Ошибка, ничего не " +
                         "вернулось");
                 else viewMain.sayAboutError(response.body().getAnswer());
@@ -75,6 +75,6 @@ public class Presenter {
 
         void sayAboutError(String s);
 
-        void saySuccess();
+        void saySuccess(String s);
     }
 }
