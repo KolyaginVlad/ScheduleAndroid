@@ -8,7 +8,17 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class PostSchedule {
+    @SerializedName("answer")
+    @Expose
+    private String answer;
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
     @SerializedName("time")
     @Expose
     private List<String> time = null;

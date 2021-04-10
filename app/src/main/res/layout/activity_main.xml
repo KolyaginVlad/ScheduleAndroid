@@ -17,7 +17,16 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:layout_margin="16dp"
         />
-
+    <ProgressBar
+        android:id="@+id/proBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -48,7 +57,7 @@
         app:drawableRightCompat="@drawable/calendar" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
