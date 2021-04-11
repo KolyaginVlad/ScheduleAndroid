@@ -14,7 +14,7 @@ public class DayPresenter {
         this.viewDay = viewDay;
         this.date = date;
     }
-
+    //Получаем расписание на день date
     public void getSchedule(){
         viewDay.hideViews();
         viewDay.showProgressBar();

@@ -92,6 +92,7 @@ public class DayActivity extends AppCompatActivity implements DayPresenter.ViewD
             @Override
             public void run() {
                 for (int i = 0; i <postSchedule.getTime().size() ; i++) {
+                    //Создаём строку таблицы и заполяем её данными
                     TableRow tableRow = new TableRow(getApplicationContext());
                     TextView time = new TextView(getApplicationContext());
                     TextView subject = new TextView(getApplicationContext());
