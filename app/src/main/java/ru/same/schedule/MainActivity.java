@@ -8,8 +8,8 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,14 +27,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import ru.same.schedule.api.PostSubject;
 
 
 public class MainActivity extends AppCompatActivity implements Presenter.ViewMain{
-    private Toolbar toolbar;
     private CalendarView calendar;
     private Spinner subjects;
     private TextView date;
@@ -42,12 +38,12 @@ public class MainActivity extends AppCompatActivity implements Presenter.ViewMai
     private ProgressBar progressBar;
     private Button addButton;
     private TextView addText;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         calendar = findViewById(R.id.calendar);
         subjects = findViewById(R.id.subjects);
         date = findViewById(R.id.date);
@@ -70,6 +66,19 @@ public class MainActivity extends AppCompatActivity implements Presenter.ViewMai
             @Override
             public void onClick(View view) {
                 callDatePicker();
+            }
+        });
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year,
+                                            int monthOfYear,
+                                            int dayOfMonth) {
+                String editTextDateParam =
+                        dayOfMonth  + "-" + (monthOfYear + 1) + "-" + year;
+                    Intent intent = new Intent(MainActivity.this, DayActivity.class);
+                    intent.putExtra("day", editTextDateParam);
+                    startActivity(intent);
             }
         });
     }
@@ -96,8 +105,8 @@ public class MainActivity extends AppCompatActivity implements Presenter.ViewMai
     private void callTimePicker() {
         // получаем текущее время
         final Calendar cal = Calendar.getInstance();
-        mHour = cal.get(Calendar.HOUR_OF_DAY);
-        mMinute = cal.get(Calendar.MINUTE);
+        int mHour = cal.get(Calendar.HOUR_OF_DAY);
+        int mMinute = cal.get(Calendar.MINUTE);
 
         // инициализируем диалог выбора времени текущими значениями
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
@@ -114,9 +123,9 @@ public class MainActivity extends AppCompatActivity implements Presenter.ViewMai
     private void callDatePicker() {
         // получаем текущую дату
         final Calendar cal = Calendar.getInstance();
-        mYear = cal.get(Calendar.YEAR);
-        mMonth = cal.get(Calendar.MONTH);
-        mDay = cal.get(Calendar.DAY_OF_MONTH);
+        int mYear = cal.get(Calendar.YEAR);
+        int mMonth = cal.get(Calendar.MONTH);
+        int mDay = cal.get(Calendar.DAY_OF_MONTH);
 
         // инициализируем диалог выбора даты текущими значениями
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,

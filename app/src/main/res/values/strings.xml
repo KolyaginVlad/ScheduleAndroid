@@ -3,4 +3,7 @@
     <string name="noDate">дд.мм.гггг --:--</string>
     <string name="add">Добавить</string>
     <string name="addString">Добавление новой записи</string>
+    <string name="time">Время экзамена</string>
+    <string name="name">Название предмета</string>
+    <string name="specialities">Список специальностей, абитуриенты которых должны прийти на экзамен</string>
 </resources>
