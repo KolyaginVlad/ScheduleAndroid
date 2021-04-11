@@ -21,7 +21,7 @@
     * **Методы:**
       ```java
        protected void onCreate(Bundle savedInstanceState) - Инициализация activity
-       public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) - Получение резрешений от пользователя
+       public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) - Получение разрешений от пользователя
        private void callTimePicker() - Вызов диалогового окна для получение времени
        private void callDatePicker() - Вызов диалогового окна для получение даты
        public void addNew(View view) throws ParseException - Метод, вызываемый при нажатии addButton
@@ -48,7 +48,7 @@
       * *Загрузка activity* - отправка на модуль Presenter запроса на получение данных о предметах с сервера
       * *Выбор даты на календаре* - переход на DayActivity с передачей выбранного дня
       * *Нажатие на текст даты для добавления нового экзамена* - открытие DatePicker, а после выбора TimePicker. Данные записываются в текстовое поле
-      * *Нажатие на кнопку "Добавить"* - отправка данных на модуль Presenter с последующей отпрвкой на сервер
+      * *Нажатие на кнопку "Добавить"* - отправка данных на модуль Presenter с последующей отправкой на сервер
   * **DayActivity** - модуль, отвечающий за отображение activity, содержащей данные об экзаменах на определённый день
       * **Наследуется от AppCompatActivity, реализует интерфейс DayPresenter.ViewDay**
       * **Глобальные переменные:**
@@ -80,7 +80,7 @@
         * *Загрузка activity* - отправка на модуль DayPresenter запроса на получение данных о расписании с сервера
         * *Нажатие на навигационную кнопку в Toolbar*  - возвращение на MainActivity
   * **Presenter** - модуль, отвечающий за логику MainActivity
-    * **Содержить описание интерфейса `public interface ViewMain`, предназначенного для взаимодействия с activity**
+    * **Содержит описание интерфейса `public interface ViewMain`, предназначенного для взаимодействия с activity**
     * **Глобальные переменные:**
       ```java
       private ViewMain viewMain; - ссылка на реализующую интерфейс activity (MainActivity)
@@ -95,7 +95,7 @@
       public void addNew(String subject, String date, String time) - Добавить новый экзамен
       ```
   * **DayPresenter** - модуль, отвечающий за логику DayActivity
-    * **Содержить описание интерфейса `public interface ViewDay`, предназначенного для взаимодействия с activity**
+    * **Содержит описание интерфейса `public interface ViewDay`, предназначенного для взаимодействия с activity**
     * **Глобальные переменные:**
       ```java
       private ViewDay viewDay; - ссылка на реализующую интерфейс activity (DayActivity)
