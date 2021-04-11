@@ -39,6 +39,7 @@ public class DayActivity extends AppCompatActivity implements DayPresenter.ViewD
                 finish();
             }
         });
+        toolbar.setNavigationIcon(R.drawable.back);
         dayPresenter = new DayPresenter(this, intentDay.getStringExtra("day"));
         dayPresenter.getSchedule();
     }

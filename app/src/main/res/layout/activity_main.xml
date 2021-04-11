@@ -8,15 +8,78 @@
     <include layout="@layout/toolbar"
         android:id="@+id/toolbar"
         />
-    <CalendarView
-        android:id="@+id/calendar"
-        android:layout_width="wrap_content"
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:layout_margin="16dp"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="8dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CalendarView
+                android:id="@+id/calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/addString"
+                android:textColor="#3F51B5"
+                android:textSize="22sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calendar"
+                />
+
+            <Spinner
+                android:id="@+id/subjects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/noDate"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:drawableRightCompat="@drawable/calendar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subjects" />
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:onClick="addNew"
+                android:text="@string/add"
+                app:backgroundTint="#2B981F"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
     <ProgressBar
         android:id="@+id/proBar"
         style="?android:attr/progressBarStyleLarge"
@@ -27,47 +90,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addString"
-        android:textColor="#3F51B5"
-        android:layout_margin="16dp"
-        android:textSize="22sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calendar" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/subjects"
-        android:layout_margin="16dp"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/noDate"
-        android:id="@+id/date"
-        android:layout_margin="16dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subjects"
-        app:drawableRightCompat="@drawable/calendar" />
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/add"
-        app:backgroundTint="#2B981F"
-        android:onClick="addNew"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

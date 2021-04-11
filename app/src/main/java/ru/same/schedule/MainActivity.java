@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements Presenter.ViewMai
                     Intent intent = new Intent(MainActivity.this, DayActivity.class);
                     intent.putExtra("day", editTextDateParam);
                     startActivity(intent);
+                    finish();
             }
         });
     }
